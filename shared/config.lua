@@ -264,7 +264,7 @@ Config.PenalCode = {
     },
     [3] = {
 	[1] = {title = 'Usurpation d\'identité', class = 'Misdemeanor', id = 'P.C. 3001', months = 15, fine = 1250, color = 'green', description = 'L\'action de se faire passer faussement pour une autre personne pour tromper'},
-	[2] = {title = 'Usurpation d\'un agent de la paix ou d'un fonctionnaire public', class = 'Felony', id = 'P.C. 3002', months = 25, fine = 2750, color = 'green', description = 'L\'action de se faire passer faussement pour un employé du gouvernement pour tromper'},
+	[2] = {title = 'Usurpation d\'un agent de la paix ou d\'un fonctionnaire public', class = 'Felony', id = 'P.C. 3002', months = 25, fine = 2750, color = 'green', description = 'L\'action de se faire passer faussement pour un employé du gouvernement pour tromper'},
 	[3] = {title = 'Usurpation d\'un juge', class = 'Felony', id = 'P.C. 3003', months = 0, fine = 0, color = 'green', description = 'L\'action de se faire passer faussement pour un juge pour tromper'},
 	[4] = {title = 'Possession d\'une identification volée', class = 'Misdemeanor', id = 'P.C. 3004', months = 10, fine = 750, color = 'green', description = 'Avoir l\'identification d\'une autre personne sans son consentement'},
 	[5] = {title = 'Possession d\'une identification gouvernementale volée', class = 'Misdemeanor', id = 'P.C. 3005', months = 20, fine = 2000, color = 'green', description = 'Avoir l\'identification d\'un employé du gouvernement sans son consentement'},
