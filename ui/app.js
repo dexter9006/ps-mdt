@@ -4547,7 +4547,7 @@ window.addEventListener("message", function (event) {
       $(".active-calls-list").empty();
       $.each(table, function (index, value) {
         if (value && value?.job?.includes(playerJob) || value?.jobs.includes(PlayerJobType)) {
-
+          DispatchMAP(value);
           const prio = value["priority"];
           let DispatchItem = `<div class="active-calls-item" data-id="${value.callId || value.id}" data-canrespond="false"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.callId || value.id}</div><div class="call-code priority-${value.priority}">${value.dispatchCode || value.code}</div><div class="call-title">${value.dispatchMessage || value.message}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`;
 
@@ -5788,7 +5788,7 @@ center: [0, -1024],
 maxBoundsViscosity: 1.0
 });
 
-var customImageUrl = 'https://i.imgur.com/EdOZjzF.jpg';
+var customImageUrl = 'https://cdn.discordapp.com/attachments/1057280333399199764/1227266280436793444/EdOZjzF_-_Imgur.jpg?ex=6627c7ca&is=661552ca&hm=f5228e6355aa23d97fee9286020a72434d913d23c522f4f4c9191db2756549e2&';
 
 var sw = map.unproject([0, 1024], 3 - 1);
 var ne = map.unproject([1024, 0], 3 - 1);
@@ -5820,9 +5820,9 @@ function DispatchMAP(DISPATCH) {
   var MIN = Math.round(Math.round((new Date() - new Date(DISPATCH.time)) / 1000) / 60);
   if (MIN > 10) return;
 
-  var COORDS_X = DISPATCH.origin.x
-  var COORDS_Y = DISPATCH.origin.y
-  var CODE = DISPATCH.callId
+  var COORDS_X = DISPATCH.coords.x
+  var COORDS_Y = DISPATCH.coords.y
+  var CODE = DISPATCH.id
 
   Dispatches[CODE] = L.marker([COORDS_Y, COORDS_X], { icon: DispatchPing });
   Dispatches[CODE].addTo(map);
@@ -5832,7 +5832,7 @@ function DispatchMAP(DISPATCH) {
     map.removeLayer(Dispatches[CODE]);
   }, 1200000);
 
-  Dispatches[CODE].bindTooltip(`<div class="map-tooltip-info">${DISPATCH.dispatchMessage}</div></div><div class="map-tooltip-id">#${DISPATCH.callId}</div>`,
+  Dispatches[CODE].bindTooltip(`<div class="map-tooltip-info">${DISPATCH.message}</div></div><div class="map-tooltip-id">#${DISPATCH.id}</div>`,
       {
           direction: 'top',
           permanent: false,
